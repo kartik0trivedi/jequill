@@ -28,15 +28,13 @@ With a post open, run **Jequill: Prepare for Publishing** from the command palet
 - Convert `![[image.png]]` → `![image.png]({{ site.baseurl }}/assets/img/image.png)`
 - Rename and move the file to `_posts/YYYY-MM-DD-slug.md` if needed
 
-> Git push is handled separately by the [Obsidian Git](https://github.com/denolehov/obsidian-git) plugin.
+## Works great with Git plugins
 
-## Works great with Obsidian Git
+Jequill pairs well with Git and GitHub community plugins (such as those that sync your vault to a remote repo). The recommended workflow is:
 
-Jequill pairs naturally with the [Obsidian Git](https://github.com/denolehov/obsidian-git) community plugin. The recommended workflow is:
-
-1. **Write** your post in Obsidian using Jequill's **New Jekyll Post** command
+1. **Write** your post using Jequill's **New Jekyll Post** command
 2. **Publish** it with **Prepare for Publishing** — converts links and moves the file to `_posts/`
-3. **Push** to your Jekyll site's GitHub repo using Obsidian Git's auto-commit or manual push
+3. **Push** to your Jekyll site's GitHub repo using your Git plugin of choice
 
 No terminal needed at any step.
 
