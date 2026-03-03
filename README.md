@@ -69,4 +69,4 @@ image: /assets/img/default.jpg
 
 ## License
 
-[0BSD](LICENSE)
+[MIT](LICENSE)
