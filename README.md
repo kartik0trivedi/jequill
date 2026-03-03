@@ -30,6 +30,16 @@ With a post open, run **Jequill: Prepare for Publishing** from the command palet
 
 > Git push is handled separately by the [Obsidian Git](https://github.com/denolehov/obsidian-git) plugin.
 
+## Works great with Obsidian Git
+
+Jequill pairs naturally with the [Obsidian Git](https://github.com/denolehov/obsidian-git) community plugin. The recommended workflow is:
+
+1. **Write** your post in Obsidian using Jequill's **New Jekyll Post** command
+2. **Publish** it with **Prepare for Publishing** — converts links and moves the file to `_posts/`
+3. **Push** to your Jekyll site's GitHub repo using Obsidian Git's auto-commit or manual push
+
+No terminal needed at any step.
+
 ## Settings
 
 | Setting | Default | Description |
