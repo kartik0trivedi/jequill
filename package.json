@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "jequill",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Write and publish Jekyll blog posts from Obsidian — front matter generation, slug management, and Obsidian-to-Jekyll link conversion.",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
