@@ -38,11 +38,11 @@ export function buildFrontMatter(fields: Record<string, unknown>): string {
 		if (Array.isArray(value)) {
 			if (value.length === 0) continue;
 			lines.push(`${key}:`);
-			value.forEach(v => lines.push(`  - ${v}`));
-		} else if (typeof value === 'string' && /[:#\[\]{},]/.test(value)) {
+			value.forEach(v => lines.push(`  - ${String(v)}`));
+		} else if (typeof value === 'string' && /[:#{}[\],]/.test(value)) {
 			lines.push(`${key}: "${value.replace(/"/g, '\\"')}"`);
 		} else {
-			lines.push(`${key}: ${value}`);
+			lines.push(`${key}: ${String(value)}`);
 		}
 	}
 	lines.push('---');

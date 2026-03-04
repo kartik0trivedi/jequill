@@ -1,6 +1,6 @@
 import { App, Modal, Notice, Setting } from 'obsidian';
 import JequillPlugin from './main';
-import { buildFrontMatter, ensureFolder, generateSlug, parseTags, todayDate, todayDateTime } from './utils';
+import { buildFrontMatter, ensureFolder, parseTags, todayDate, todayDateTime } from './utils';
 
 export class NewPostModal extends Modal {
 	plugin: JequillPlugin;
@@ -19,7 +19,7 @@ export class NewPostModal extends Modal {
 
 	onOpen() {
 		const { contentEl } = this;
-		contentEl.createEl('h2', { text: 'New Jekyll Post' });
+		contentEl.createEl('h2', { text: 'New Jekyll post' });
 
 		const date = todayDate();
 
@@ -27,7 +27,6 @@ export class NewPostModal extends Modal {
 			text: `${date}-.md`,
 			cls: 'jequill-filename-preview',
 		});
-		preview.style.cssText = 'font-size:0.8em;color:var(--text-muted);margin:0 0 12px 0;font-family:var(--font-monospace)';
 
 		let slugInput: HTMLInputElement;
 		let titleInput: HTMLInputElement;
@@ -36,7 +35,8 @@ export class NewPostModal extends Modal {
 			.setName('Slug')
 			.setDesc('Used for the filename and URL')
 			.addText(text => {
-				text.setPlaceholder('my-post-a-deep-dive')
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
+				text.setPlaceholder('my-first-post')
 					.onChange(value => {
 						this.slug = value;
 						preview.setText(value ? `${date}-${value}.md` : `${date}-.md`);
@@ -49,7 +49,7 @@ export class NewPostModal extends Modal {
 					});
 				slugInput = text.inputEl;
 				slugInput.addEventListener('keydown', (e) => {
-					if (e.key === 'Enter') this.submit();
+					if (e.key === 'Enter') void this.submit();
 				});
 			});
 
@@ -57,14 +57,14 @@ export class NewPostModal extends Modal {
 			.setName('Title')
 			.setDesc('Display title in front matter — auto-fills from slug, edit to customise')
 			.addText(text => {
-				text.setPlaceholder('My Post: A Deep Dive')
+				text.setPlaceholder('My post: a deep dive')
 					.onChange(value => {
 						this.title = value;
 						this.titleManuallyEdited = true;
 					});
 				titleInput = text.inputEl;
 				titleInput.addEventListener('keydown', (e) => {
-					if (e.key === 'Enter') this.submit();
+					if (e.key === 'Enter') void this.submit();
 				});
 			});
 
@@ -72,6 +72,7 @@ export class NewPostModal extends Modal {
 			.setName('Categories')
 			.setDesc('Space or comma separated')
 			.addText(text => text
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('tech')
 				.onChange(value => { this.categories = value; }));
 
@@ -79,7 +80,8 @@ export class NewPostModal extends Modal {
 			.setName('Tags')
 			.setDesc('Space or comma separated')
 			.addText(text => text
-				.setPlaceholder('obsidian jekyll')
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
+				.setPlaceholder('jekyll blog')
 				.onChange(value => { this.tags = value; }));
 
 		new Setting(contentEl)
@@ -91,9 +93,9 @@ export class NewPostModal extends Modal {
 
 		new Setting(contentEl)
 			.addButton(btn => btn
-				.setButtonText('Create Post')
+				.setButtonText('Create post')
 				.setCta()
-				.onClick(() => this.submit()));
+				.onClick(() => void this.submit()));
 
 		setTimeout(() => slugInput?.focus(), 50);
 	}

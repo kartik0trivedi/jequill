@@ -10,7 +10,7 @@ export async function prepareForPublish(app: App, plugin: JequillPlugin, file: T
 	// Convert ![[image.png]] → Jekyll image tag
 	const newContent1 = content.replace(
 		/!\[\[([^\]]+)\]\]/g,
-		(_, imgPath) => {
+		(_, imgPath: string) => {
 			const imgName = imgPath.split('/').pop() ?? imgPath;
 			changed = true;
 			return `![${imgName}]({{ site.baseurl }}/${settings.assetsFolder}/${imgName})`;
@@ -21,7 +21,7 @@ export async function prepareForPublish(app: App, plugin: JequillPlugin, file: T
 	// Convert [[target|alias]] and [[target]] → markdown links
 	const newContent2 = content.replace(
 		/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
-		(_, target, alias) => {
+		(_, target: string, alias: string | undefined) => {
 			const text = alias?.trim() ?? target.trim();
 			const slug = generateSlug(target.trim());
 			changed = true;

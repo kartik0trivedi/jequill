@@ -9,13 +9,13 @@ export default class JequillPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.addRibbonIcon('feather', 'New Jekyll Post', () => {
+		this.addRibbonIcon('feather', 'New Jekyll post', () => {
 			new NewPostModal(this.app, this).open();
 		});
 
 		this.addCommand({
 			id: 'new-post',
-			name: 'New Jekyll Post',
+			name: 'New Jekyll post',
 			callback: () => {
 				new NewPostModal(this.app, this).open();
 			},
@@ -23,12 +23,12 @@ export default class JequillPlugin extends Plugin {
 
 		this.addCommand({
 			id: 'prepare-publish',
-			name: 'Prepare for Publishing',
+			name: 'Prepare for publishing',
 			checkCallback: (checking: boolean) => {
 				const view = this.app.workspace.getActiveViewOfType(MarkdownView);
 				if (view?.file) {
 					if (!checking) {
-						prepareForPublish(this.app, this, view.file);
+						void prepareForPublish(this.app, this, view.file);
 					}
 					return true;
 				}

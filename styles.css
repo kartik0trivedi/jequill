@@ -1,8 +1,6 @@
-/*
-
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
-*/
+.jequill-filename-preview {
+	font-size: 0.8em;
+	color: var(--text-muted);
+	margin: 0 0 12px 0;
+	font-family: var(--font-monospace);
+}

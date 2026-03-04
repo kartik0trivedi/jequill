@@ -35,12 +35,14 @@ export class JequillSettingTab extends PluginSettingTab {
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
-		containerEl.createEl('h2', { text: 'Jequill' });
+
+		new Setting(containerEl).setName('Jequill').setHeading();
 
 		new Setting(containerEl)
 			.setName('Posts folder')
 			.setDesc('Vault path for published posts')
 			.addText(text => text
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('_posts')
 				.setValue(this.plugin.settings.postsFolder)
 				.onChange(async (value) => {
@@ -52,6 +54,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Drafts folder')
 			.setDesc('Vault path for draft posts')
 			.addText(text => text
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('_drafts')
 				.setValue(this.plugin.settings.draftsFolder)
 				.onChange(async (value) => {
@@ -63,6 +66,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Default layout')
 			.setDesc('Jekyll layout name for new posts')
 			.addText(text => text
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('post')
 				.setValue(this.plugin.settings.defaultLayout)
 				.onChange(async (value) => {
@@ -74,6 +78,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Assets folder')
 			.setDesc('Jekyll site path for images (used when converting ![[image]] embeds)')
 			.addText(text => text
+				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('assets/img')
 				.setValue(this.plugin.settings.assetsFolder)
 				.onChange(async (value) => {
@@ -85,7 +90,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Default author')
 			.setDesc('Added to front matter of new posts (leave blank to omit)')
 			.addText(text => text
-				.setPlaceholder('Your Name')
+				.setPlaceholder('Your name')
 				.setValue(this.plugin.settings.defaultAuthor)
 				.onChange(async (value) => {
 					this.plugin.settings.defaultAuthor = value.trim();
@@ -93,7 +98,7 @@ export class JequillSettingTab extends PluginSettingTab {
 				}));
 
 		// Custom front matter fields
-		containerEl.createEl('h3', { text: 'Custom front matter fields' });
+		new Setting(containerEl).setName('Custom front matter fields').setHeading();
 		containerEl.createEl('p', {
 			text: 'Extra fields added to every new post. Use {{date}} as a placeholder for today\'s date (YYYY-MM-DD).',
 			cls: 'setting-item-description',
@@ -112,6 +117,7 @@ export class JequillSettingTab extends PluginSettingTab {
 		fields.forEach((field, index) => {
 			const row = new Setting(containerEl)
 				.addText(key => key
+					// eslint-disable-next-line obsidianmd/ui/sentence-case
 					.setPlaceholder('key')
 					.setValue(field.key)
 					.onChange(async (value) => {
@@ -119,6 +125,7 @@ export class JequillSettingTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					}))
 				.addText(val => val
+					// eslint-disable-next-line obsidianmd/ui/sentence-case
 					.setPlaceholder('value')
 					.setValue(field.value)
 					.onChange(async (value) => {
@@ -138,7 +145,7 @@ export class JequillSettingTab extends PluginSettingTab {
 
 		const addBtn = new Setting(containerEl)
 			.addButton(btn => btn
-				.setButtonText('+ Add field')
+				.setButtonText('Add field')
 				.onClick(async () => {
 					this.plugin.settings.customFrontMatter.push({ key: '', value: '' });
 					await this.plugin.saveSettings();
