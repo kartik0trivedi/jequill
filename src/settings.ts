@@ -36,13 +36,10 @@ export class JequillSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		new Setting(containerEl).setName('Jequill').setHeading();
-
 		new Setting(containerEl)
 			.setName('Posts folder')
 			.setDesc('Vault path for published posts')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('_posts')
 				.setValue(this.plugin.settings.postsFolder)
 				.onChange(async (value) => {
@@ -54,7 +51,6 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Drafts folder')
 			.setDesc('Vault path for draft posts')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
 				.setPlaceholder('_drafts')
 				.setValue(this.plugin.settings.draftsFolder)
 				.onChange(async (value) => {

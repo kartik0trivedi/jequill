@@ -9,12 +9,14 @@ export default class JequillPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+		// eslint-disable-next-line obsidianmd/ui/sentence-case
 		this.addRibbonIcon('feather', 'New Jekyll post', () => {
 			new NewPostModal(this.app, this).open();
 		});
 
 		this.addCommand({
 			id: 'new-post',
+			// eslint-disable-next-line obsidianmd/ui/sentence-case
 			name: 'New Jekyll post',
 			callback: () => {
 				new NewPostModal(this.app, this).open();

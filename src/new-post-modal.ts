@@ -19,6 +19,7 @@ export class NewPostModal extends Modal {
 
 	onOpen() {
 		const { contentEl } = this;
+		// eslint-disable-next-line obsidianmd/ui/sentence-case
 		contentEl.createEl('h2', { text: 'New Jekyll post' });
 
 		const date = todayDate();
