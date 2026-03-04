@@ -1,6 +1,6 @@
 # Jequill
 
-Write and publish [Jekyll](https://jekyllrb.com/) blog posts directly from Obsidian — with front matter generation, slug management, and automatic Obsidian-to-Jekyll link conversion.
+Write and publish [Jekyll](https://jekyllrb.com/) blog posts directly from your vault — with front matter generation, slug management, and automatic wiki link conversion.
 
 ## Features
 

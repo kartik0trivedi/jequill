@@ -3,7 +3,7 @@
 	"name": "Jequill",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Write and publish Jekyll blog posts from Obsidian — front matter generation, slug management, and Obsidian-to-Jekyll link conversion.",
+	"description": "Write and publish Jekyll blog posts directly from your vault — front matter generation, slug management, and wiki link conversion.",
 	"author": "Kartik Trivedi",
 	"authorUrl": "https://github.com/kartik0trivedi",
 	"isDesktopOnly": false
