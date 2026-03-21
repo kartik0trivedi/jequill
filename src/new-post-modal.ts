@@ -19,8 +19,7 @@ export class NewPostModal extends Modal {
 
 	onOpen() {
 		const { contentEl } = this;
-		// eslint-disable-next-line obsidianmd/ui/sentence-case
-		contentEl.createEl('h2', { text: 'New Jekyll post' });
+		contentEl.createEl('h2', { text: 'New post' });
 
 		const date = todayDate();
 
@@ -36,8 +35,7 @@ export class NewPostModal extends Modal {
 			.setName('Slug')
 			.setDesc('Used for the filename and URL')
 			.addText(text => {
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
-				text.setPlaceholder('my-first-post')
+				text.setPlaceholder('My-first-post')
 					.onChange(value => {
 						this.slug = value;
 						preview.setText(value ? `${date}-${value}.md` : `${date}-.md`);
@@ -73,16 +71,14 @@ export class NewPostModal extends Modal {
 			.setName('Categories')
 			.setDesc('Space or comma separated')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
-				.setPlaceholder('tech')
+				.setPlaceholder('Tech')
 				.onChange(value => { this.categories = value; }));
 
 		new Setting(contentEl)
 			.setName('Tags')
 			.setDesc('Space or comma separated')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
-				.setPlaceholder('jekyll blog')
+				.setPlaceholder('Jekyll blog')
 				.onChange(value => { this.tags = value; }));
 
 		new Setting(contentEl)

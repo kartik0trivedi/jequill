@@ -62,8 +62,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Default layout')
 			.setDesc('Jekyll layout name for new posts')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
-				.setPlaceholder('post')
+				.setPlaceholder('Post')
 				.setValue(this.plugin.settings.defaultLayout)
 				.onChange(async (value) => {
 					this.plugin.settings.defaultLayout = value.trim();
@@ -74,8 +73,7 @@ export class JequillSettingTab extends PluginSettingTab {
 			.setName('Assets folder')
 			.setDesc('Jekyll site path for images (used when converting ![[image]] embeds)')
 			.addText(text => text
-				// eslint-disable-next-line obsidianmd/ui/sentence-case
-				.setPlaceholder('assets/img')
+				.setPlaceholder('Assets/img')
 				.setValue(this.plugin.settings.assetsFolder)
 				.onChange(async (value) => {
 					this.plugin.settings.assetsFolder = value.trim();
@@ -113,16 +111,14 @@ export class JequillSettingTab extends PluginSettingTab {
 		fields.forEach((field, index) => {
 			const row = new Setting(containerEl)
 				.addText(key => key
-					// eslint-disable-next-line obsidianmd/ui/sentence-case
-					.setPlaceholder('key')
+					.setPlaceholder('Key')
 					.setValue(field.key)
 					.onChange(async (value) => {
 						this.plugin.settings.customFrontMatter[index]!.key = value.trim();
 						await this.plugin.saveSettings();
 					}))
 				.addText(val => val
-					// eslint-disable-next-line obsidianmd/ui/sentence-case
-					.setPlaceholder('value')
+					.setPlaceholder('Value')
 					.setValue(field.value)
 					.onChange(async (value) => {
 						this.plugin.settings.customFrontMatter[index]!.value = value;
